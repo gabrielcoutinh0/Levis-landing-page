@@ -102,7 +102,7 @@ export default function Product(){
       {productItems.map((item, index) => {
         return(
           <div 
-            key={item.id} 
+            key={item.id}
             className={slideIndex === index + 1 ? 'slide active-slide' : 'slide'}
           >
             <img src={item.src} className='product_img' alt={item.title} />
@@ -132,7 +132,8 @@ export default function Product(){
         <div className='dots_wrapper'>
           <ul className='dots'>
             {Array.from({length: 5}).map((item, index) => (
-              <li 
+              <li
+                key={index}
                 onClick={() => moveDot(index + 1)} 
                 className={slideIndex === index + 1 ? 'dot active' : 'dot'} />
             ))}
