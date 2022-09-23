@@ -1,7 +1,3 @@
-<p align="center">
-  <img alt="SpaceY" src=".github/Logo.svg">
-</p>
-
 ## Desktop
 <h1 align="center">
     <img alt="Preview Desktop" title="Preview Desktop" src=".github/Desktop.png" />
