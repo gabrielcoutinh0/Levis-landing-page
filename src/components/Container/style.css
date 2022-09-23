@@ -1,0 +1,15 @@
+.left_container, .right_container{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  z-index: -50;
+}
+
+.left_container{
+  background-color: var(--primary-color);
+}
+
+.right_container{
+  left: 50%;
+  background-color: var(--secondary-color);
+}

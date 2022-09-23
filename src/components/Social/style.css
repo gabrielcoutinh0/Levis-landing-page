@@ -1,0 +1,40 @@
+.social{
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  transform: rotate(-90deg);
+}
+
+.social ul{
+  list-style: none;
+}
+
+.social ul li{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.social_icon{
+  font-size: 19px;
+  color: var(--color-text);
+}
+
+.social ul li:nth-child(1)::after{
+  content: '/';
+  position: absolute;
+  left: 60%;
+  color: #eeeeeeb9;
+}
+
+.social ul li:nth-child(2)::after{
+  content: '/';
+  position: absolute;
+  left: 55%;
+  color: #eeeeeeb9;
+}
+
+.social ul li:not(:last-child){
+  padding-right: 70px;
+}

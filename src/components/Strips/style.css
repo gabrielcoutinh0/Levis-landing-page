@@ -1,0 +1,16 @@
+.left_strip, .right_strip{
+  position: absolute;
+  width: 1px;
+  height: 100vh;
+  background-color: #FFF;
+  opacity: .5;
+  z-index: -10;
+}
+
+.left_strip{
+  left: 7.5rem;
+}
+
+.right_strip{
+  right: 7.5rem;
+}

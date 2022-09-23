@@ -1,0 +1,23 @@
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  z-index: 60;
+}
+
+.first{
+  background-color: var(--primary-color);
+}
+
+.second{
+  left: 33.3%;
+  background-color: #FFF;
+}
+
+.third{
+  left: 66.6%;
+  background-color: var(--secondary-color);
+}
