@@ -6,6 +6,8 @@ import productItems from './productItems';
 import './style.css';
 import { useState } from 'react';
 
+
+let count = 0;
 export default function Product(){
 
   useEffect(() => {
@@ -75,27 +77,41 @@ export default function Product(){
     
   }, []);
 
-  const [slideIndex, setSlideIndex] = useState(1);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const productsLength = productItems.length;
+  let slideInterval;
 
-    const nextSlide = () => {
-      if(slideIndex !== productItems.length){
-        setSlideIndex(slideIndex + 1);
-      }else if(slideIndex === productItems.length){
-        setSlideIndex(1)
-      }
-    }
+  const nextSlide = () => {
+    count = (count + 1) % productItems.length;
+    setSlideIndex(count);
+    console.log(count);
+  }
 
-    const prevSlide = () => {
-      if(slideIndex !== 1){
-        setSlideIndex(slideIndex - 1);
-      }else if(slideIndex === 1){
-        setSlideIndex(productItems.length)
-      }
-    }
+  const prevSlide = () => {
+    count = (slideIndex + productsLength - 1) % productsLength;
+    setSlideIndex(count);
+  }
 
-    const moveDot = index => {
-      setSlideIndex(index);
+  const moveDot = index => {
+    setSlideIndex(index);
+  }
+
+  useEffect(() => {
+    startSlider();
+    return () => {
+      clearInterval(slideInterval);
     }
+  }, []);
+
+  const startSlider = () => {
+    slideInterval = setInterval(() => {
+      nextSlide();
+    }, 10000);
+  }
+
+  const pauseSlider = () => {
+    clearInterval(slideInterval);
+  };
 
   return (
     <>
@@ -103,7 +119,7 @@ export default function Product(){
         return(
           <div 
             key={item.id}
-            className={slideIndex === index + 1 ? 'slide active-slide' : 'slide'}
+            className={slideIndex === index ? 'slide active-slide' : 'slide'}
           >
             <img src={item.src} className='product_img' alt={item.title} />
             <div className='product_text'>
@@ -134,8 +150,8 @@ export default function Product(){
             {Array.from({length: 5}).map((item, index) => (
               <li
                 key={index}
-                onClick={() => moveDot(index + 1)} 
-                className={slideIndex === index + 1 ? 'dot active' : 'dot'} />
+                onClick={() => moveDot(index)} 
+                className={slideIndex === index ? 'dot active' : 'dot'} />
             ))}
           </ul>
         </div>

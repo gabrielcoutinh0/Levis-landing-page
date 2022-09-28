@@ -125,7 +125,10 @@
 .slide{
   display: none;
   opacity: 0;
-  transition: opacity ease-in-out .4s;
+}
+
+.active-slide h1, p{
+  animation: fadeAnim ease-out 1s;
 }
 
 .active-slide{
@@ -142,5 +145,14 @@
   }
   100%{
     transform: translate(-50%, -46%);
+  }
+}
+
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
